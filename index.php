@@ -70,6 +70,25 @@
         var_dump($rainbowTable);
         return $rainbowTable;
   }
+
+  /**
+   * Fonction de génération de mots de passe
+   * pour peupler la rainbow table et intégrer
+   * ces empreintes dans un fichier
+   */
+  function populationDeLaTable($array_mdp) {
+    global $nbIterations ;
+    for($j=0; $j < count($array_mdp); $j++) {
+      for ($i=0; $i <$nbIterations ; $i++) { 
+         $hash= hasher($array_mdp[$j]);
+         echo "</br> le hash: ".$hash."</br>";
+         $array_mdp[$j]=reduce($hash);
+         echo "</br> le mdp equivalent: ".$array_mdp[$j]."</br>";
+         $string_file = $array_mdp[$j]." ".$hash."\r\n";
+         file_put_contents("test_100.txt",$string_file, FILE_APPEND);
+      }
+    }
+  }
  
 
   /**
@@ -146,10 +165,21 @@
     }
   }
 
-  $rainbowTable=creationRainbowTable("bb8327ceab");
+  /*$rainbowTable=creationRainbowTable("bb8327ceab");
     //emprunte pas dans la table mais on ces qu'elle existe dans la table
     dechiffrer("4b3b8e4668ddaac4ed693ae5171721e2",$rainbowTable);
     //emprunte dans la table 
-    //dechiffrer("15ca5a6ddf070d84d9c3b6fced8885b2",$rainbowTable);
+    //dechiffrer("15ca5a6ddf070d84d9c3b6fced8885b2",$rainbowTable);*/
+
+    populationDeLaTable(array("bb8327ceab",
+                              "aaaaaa1111",
+                              "reza8083zr",
+                              "yjt1698qad",
+                              "a2633zetqs",
+                              "654azdsqf2",
+                              "dfg48az56r",
+                              "g5f6s3t4gv",
+                              "bf896dez5z",
+                              "xvdq5ze874"));
 
 ?>
