@@ -84,9 +84,9 @@
          echo "</br> le hash: ".$hash."</br>";
          $array_mdp[$j]=reduce($hash);
          echo "</br> le mdp equivalent: ".$array_mdp[$j]."</br>";
-         $string_file = $array_mdp[$j]." ".$hash."\r\n";
-         file_put_contents("test_100.txt",$string_file, FILE_APPEND);
       }
+      $string_file = $array_mdp[$j]." ".$hash."\r\n";
+      file_put_contents("test_100.txt",$string_file, FILE_APPEND);
     }
   }
  
