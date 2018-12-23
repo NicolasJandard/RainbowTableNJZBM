@@ -79,15 +79,17 @@
   function populationDeLaTable($array_mdp) {
     global $nbIterations ;
     for($j=0; $j < count($array_mdp); $j++) {
-      for ($i=0; $i <$nbIterations ; $i++) { 
-         $hash= hasher($array_mdp[$j]);
+      for ($i=0; $i <$nbIterations ; $i++) {
+         $mdp= $array_mdp[$j];
+         $hash= hasher($mdp);
          echo "</br> le hash: ".$hash."</br>";
-         $array_mdp[$j]=reduce($hash);
-         echo "</br> le mdp equivalent: ".$array_mdp[$j]."</br>";
+         $mdp=reduce($hash);
+         echo "</br> le mdp equivalent: ".$mdp."</br>";
       }
       $string_file = $array_mdp[$j]." ".$hash."\r\n";
       file_put_contents("test_100.txt",$string_file, FILE_APPEND);
     }
+  
   }
  
 
