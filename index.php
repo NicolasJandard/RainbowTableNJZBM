@@ -79,8 +79,8 @@
   function populationDeLaTable($array_mdp) {
     global $nbIterations ;
     for($j=0; $j < count($array_mdp); $j++) {
+        $mdp= $array_mdp[$j];
       for ($i=0; $i <$nbIterations ; $i++) {
-         $mdp= $array_mdp[$j];
          $hash= hasher($mdp);
          echo "</br> le hash: ".$hash."</br>";
          $mdp=reduce($hash);
@@ -173,7 +173,7 @@
     //emprunte dans la table 
     //dechiffrer("15ca5a6ddf070d84d9c3b6fced8885b2",$rainbowTable);*/
 
-    populationDeLaTable(array("bb8327ceab",
+    populationDeLaTable(array("bb8327ceab"/*,
                               "aaaaaa1111",
                               "reza8083zr",
                               "yjt1698qad",
@@ -182,6 +182,6 @@
                               "dfg48az56r",
                               "g5f6s3t4gv",
                               "bf896dez5z",
-                              "xvdq5ze874"));
+"xvdq5ze874"*/));
 
 ?>
