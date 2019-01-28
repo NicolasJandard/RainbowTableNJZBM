@@ -27,12 +27,12 @@
           <h4 class="card-title">Résultat</h4>
           <p class="card-text">
             <?php
+              $rainbowTable = creationRainbowTable("1ar23t4ist");
               if(isset($_POST['crypt'])) {
                 echo hasher($_POST['hash']);
               }
               else if(isset($_POST['decrypt'])) {
-                $rainbowTable = creationRainbowTable($_POST["hash"]);
-                //echo dechiffrer($_POST['hash'], $rainbowTable);
+                echo dechiffrer($_POST["hash"], $rainbowTable);
               }
             ?>
           </p>
@@ -250,7 +250,7 @@
             $mdpEnclair=empreinteDansTable($rainbowTable);
             echo "</br>le mot de passe est ".$mdpEnclair." pour l'empreinte rechercher ".$hash."</br>";
     } else{
-        $mdpEnclair=empreintePasDansTable($hash,$rainbowTable);
+        $mdpEnclair = empreintePasDansTable($hash,$rainbowTable);
         echo "</br>le mot de passe est ".$mdpEnclair." pour l'empreinte rechercher ".$hash."</br>";
     }
   }
